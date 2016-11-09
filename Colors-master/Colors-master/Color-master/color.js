@@ -24,34 +24,33 @@ Color.isColor = function(rgb)
 };
 
 Color.redIntensity = function(rgb){
-  let redpercentage = (red/255)*100;
+  let redpercentage = (rgb[0]/255)*100;
   Math.Round(redpercentage);
   return redpercentage;
 };
 
 //greenIntensity
 Color.greenIntensity = function(rgb){
-  let greenpercentage = (red/255)*100;
+  let greenpercentage = (rgb[1]/255)*100;
   Math.Round(greenpercentage);
   return greenpercentage;
 };
 //blueIntensity
-Color.blueintensity = function(rgb){
-  let bluepercentage = (red/255)*100;
+Color.blueIntensity = function(rgb){
+  let bluepercentage = (rgb[2]/255)*100;
   Math.Round(bluepercentage);
   return bluepercentage;
 
 //brightness
-color.brightness = function(rgb){
-  var bright = (color.redIntensity(rgb)+color.greenIntensity(rgb)+color.blueIntensity(rgb));
-  return rgb;
-}
+Color.redBrightness = function(rgb){
+  let bright = (Color.greenIntensity+Color.blueIntensity+Color.redIntensity)/3;
+  return bright;
+};
 
 //complement
-color.compliment = function(rgb){
-  var comp = [];
-  for(var c = 0;c<comp.length;c++){
-    comp[c].push(255 - rgb[c]);
-    return comp;
-  }
-}
+color.Complement = function(rgb){
+  let comp = [];
+  comp[0] = (255 - rgb[0]);
+  comp[1] = (255 - rgb[1]);
+  comp[2] = (255 - rgb[2]);
+  return comp;
